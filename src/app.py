@@ -41,7 +41,7 @@ def get_context_retriever_chain(vector_store):
 def get_conversation_rag_chain(retriever_chain):
     llm=ChatOpenAI()
     prompt=ChatPromptTemplate.from_messages([
-        ("system", "Answer the user's questions based on the below context:\n\n{context}"),
+        ("system", "Answer the user's questions based on the below context:\n\n{context}and restrict the answer should not exceed 10 words"),
         MessagesPlaceholder(variable_name="chat_history"),
         ("user", "{input}"),
     ])
@@ -60,7 +60,7 @@ def get_response(user_input):
 
 
 #app configuration
-st.set_page_config(page_title="chat with websites")
+st.set_page_config(page_title="chat with websites",page_icon="🤖")
 st.title("chat with websites")
 
 
@@ -91,7 +91,6 @@ else:
     user_query =st.chat_input("Type your message here ..")
     if user_query is not None and user_query !="":
         response=get_response(user_query)
-
         st.session_state.chat_history.append(HumanMessage(content=user_query))
         st.session_state.chat_history.append(AIMessage(content=response))
 
