@@ -15,7 +15,7 @@ ScrapeTalk is an innovative chatbot application that allows users to engage in d
 1. Clone the repository to your local machine:
 
    ```bash
-   git clone https://github.com/yourusername/scrapetalk.git
+   git clone https://sriramkrish68/chat-with-website.git
    ```
 
 2. Navigate to the project directory:
